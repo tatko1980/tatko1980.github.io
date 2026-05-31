@@ -42,7 +42,17 @@ for(let k in counts){
 document.getElementById('serie').innerHTML = shtml;
 
 let h=''; for(let k in series){h+=`<div class='group'><h2>${k}</h2><div class='cards'>`; series[k].forEach(m=>{
- h+=`<div class='card'><div class='images'><div class='imgbox'>AWERS</div><div class='imgbox'>REWERS</div></div><h3>${m.nazwa}</h3><p>Rok: ${m.rok}<p>Rok: ${m.rok}</p>
+ h+=`<div class='card'd><div class='images'>
+
+  <div class='imgbox'>
+    <img src="${m.awers}" alt="Awers">
+  </div>
+
+  <div class='imgbox'>
+    <img src="${m.rewers}" alt="Rewers">
+  </div>
+
+</div><h3>${m.nazwa}</h3><p>Rok: ${m.rok}<p>Rok: ${m.rok}</p>
 <p>Nominał: 20 zł</p>
 <p>Stan: ${notes[m.nazwa]?.stan || '-'}</p>
 <p>Wartość: ${notes[m.nazwa]?.wartosc || '-'} zł</p><button onclick="editCoin('${m.nazwa}')">Edytuj</button></div>`}); h+='</div></div>';}
