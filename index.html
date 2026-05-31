@@ -68,7 +68,11 @@ max-height:100px;
 <input id="stan" placeholder="Stan">
 <textarea id="uwagi" placeholder="Uwagi"></textarea>
 
-<input type="file" id="zdjecie">
+<label>Awers:</label>
+<input type="file" id="awers">
+
+<label>Rewers:</label>
+<input type="file" id="rewers">
 
 <button onclick="dodajMonete()">Dodaj monetę</button>
 </div>
@@ -85,7 +89,8 @@ max-height:100px;
 <table>
 <thead>
 <tr>
-<th>Zdjęcie</th>
+<th>Awers</th>
+<th>Rewers</th>
 <th>Kraj</th>
 <th>Nominał</th>
 <th>Rok</th>
@@ -165,8 +170,8 @@ const tekst=(m.kraj+" "+m.nominal+" "+m.rok).toLowerCase();
 if(!tekst.includes(szukaj)) return;
 
 html+=`
-<tr>
-<td>${m.zdjecie ? `<img src="${m.zdjecie}">` : ''}</td>
+<tr><td>${m.awers ? `<img src="${m.awers}">` : ''}</td>
+<td>${m.rewers ? `<img src="${m.rewers}">` : ''}</td>
 <td>${m.kraj}</td>
 <td>${m.nominal}</td>
 <td>${m.rok}</td>
