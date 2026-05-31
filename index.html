@@ -1,321 +1,43 @@
 
-<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kolekcja Tatko1980</title>
-<style>
-body{font-family:Arial;max-width:1400px;margin:auto;padding:20px;background:#f2f2f2}
-.stats{display:flex;gap:15px;flex-wrap:wrap}
-.box,.card{background:white;border-radius:12px;padding:15px}
-.box{min-width:180px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px}
-.pics{display:flex;gap:10px}
-.ph{border:2px dashed #bbb;padding:15px;text-align:center;flex:1}
-input[type=text]{width:100%;padding:10px;margin:15px 0}
-</style></head><body>
-<h1>🪙 Kolekcja Monet NBP - Tatko1980</h1>
+<!DOCTYPE html>
+<html lang="pl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moja Kolekcja Monet NBP</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<header><h1>🪙 Moja Kolekcja Monet NBP</h1></header>
 <div class="stats">
-<div class="box"><h2>29</h2>Monet</div>
-<div class="box"><h2>8</h2>Zwierzęta Świata</div>
-<div class="box"><h2>5</h2>Zabytki</div>
+<div class="stat"><h3 id="liczba">29</h3>Monet</div>
+<div class="stat"><h3>1995-2017</h3>Lata emisji</div>
 </div>
-<input type="text" id="sz" placeholder="Szukaj monety..." onkeyup="filtruj()">
-<div class="grid" id="grid">
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>50. rocznica powstania ONZ</h3>
-<p><b>Rok:</b> 1995</p>
-<p><b>Seria:</b> Rocznice</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Zamek w Kórniku</h3>
-<p><b>Rok:</b> 1998</p>
-<p><b>Seria:</b> Zabytki</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>100-lecie odkrycia radu i polonu</h3>
-<p><b>Rok:</b> 1998</p>
-<p><b>Seria:</b> Nauka</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Kolędnicy</h3>
-<p><b>Rok:</b> 2001</p>
-<p><b>Seria:</b> Tradycje</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Śmigus-Dyngus</h3>
-<p><b>Rok:</b> 2003</p>
-<p><b>Seria:</b> Tradycje</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Morświn</h3>
-<p><b>Rok:</b> 2004</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Dożynki</h3>
-<p><b>Rok:</b> 2004</p>
-<p><b>Seria:</b> Tradycje</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>15-lecie Senatu III RP</h3>
-<p><b>Rok:</b> 2004</p>
-<p><b>Seria:</b> Rocznice</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>350-lecie obrony Jasnej Góry</h3>
-<p><b>Rok:</b> 2005</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Świstak</h3>
-<p><b>Rok:</b> 2006</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Kościół w Haczowie</h3>
-<p><b>Rok:</b> 2006</p>
-<p><b>Seria:</b> Zabytki</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Miasto średniowieczne w Toruniu</h3>
-<p><b>Rok:</b> 2007</p>
-<p><b>Seria:</b> Zabytki</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Foka szara</h3>
-<p><b>Rok:</b> 2007</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>90. rocznica Odzyskania Niepodległości</h3>
-<p><b>Rok:</b> 2008</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Kazimierz Dolny</h3>
-<p><b>Rok:</b> 2008</p>
-<p><b>Seria:</b> Zabytki</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Sokół wędrowny</h3>
-<p><b>Rok:</b> 2008</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Polacy ratujący Żydów</h3>
-<p><b>Rok:</b> 2009</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>65. rocznica getta w Łodzi</h3>
-<p><b>Rok:</b> 2009</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Krzeszów</h3>
-<p><b>Rok:</b> 2010</p>
-<p><b>Seria:</b> Zabytki</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Podkowiec mały</h3>
-<p><b>Rok:</b> 2010</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Smoleńsk</h3>
-<p><b>Rok:</b> 2010</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>90. rocznica bitwy warszawskiej</h3>
-<p><b>Rok:</b> 2010</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Borsuk</h3>
-<p><b>Rok:</b> 2011</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Beatyfikacja Jana Pawła II</h3>
-<p><b>Rok:</b> 2011</p>
-<p><b>Seria:</b> Religia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Jaszczurka zielona</h3>
-<p><b>Rok:</b> 2012</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Polacy ratujący Żydów</h3>
-<p><b>Rok:</b> 2012</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Patrioci 1944 Obywatele</h3>
-<p><b>Rok:</b> 2014</p>
-<p><b>Seria:</b> Historia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Konik polski</h3>
-<p><b>Rok:</b> 2014</p>
-<p><b>Seria:</b> Zwierzęta Świata</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div>
-<div class="card">
-<div class="pics">
-<div class="ph">AWERS<br><input type='file'></div>
-<div class="ph">REWERS<br><input type='file'></div>
-</div>
-<h3>Pięć wieków reformacji</h3>
-<p><b>Rok:</b> 2017</p>
-<p><b>Seria:</b> Religia</p>
-<p><b>Nominał:</b> 20 zł</p>
-</div></div>
+<div id="content"></div>
 <script>
-function filtruj(){
-let q=document.getElementById('sz').value.toLowerCase();
-document.querySelectorAll('.card').forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
+fetch('data/monety.json')
+.then(r=>r.json())
+.then(monety=>{
+const serie={};
+monety.forEach(m=>{
+ if(!serie[m.seria]) serie[m.seria]=[];
+ serie[m.seria].push(m);
 });
+let html='';
+for(const [seria,lista] of Object.entries(serie)){
+ html+=`<h2>${seria} (${lista.length})</h2><div class="grid">`;
+ lista.forEach(m=>{
+  html+=`<div class="card">
+  <div class="images">
+  <div class="placeholder">AWERS</div>
+  <div class="placeholder">REWERS</div>
+  </div>
+  <h3>${m.nazwa}</h3>
+  <p>Rok: ${m.rok}</p>
+  <p>Nominał: 20 zł</p>
+  <button>Edytuj</button>
+  </div>`;
+ });
+ html+='</div>';
 }
+document.getElementById('content').innerHTML=html;
+});
 </script>
 </body></html>
