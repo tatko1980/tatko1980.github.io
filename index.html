@@ -16,9 +16,15 @@ function render(){
  let q=document.getElementById('search').value.toLowerCase();
  let series={}; all.forEach(m=>{if(active && m.seria!=active)return; if(!m.nazwa.toLowerCase().includes(q))return; (series[m.seria]??=[]).push(m)});
  let shtml=''; let counts={}; all.forEach(m=>counts[m.seria]=(counts[m.seria]||0)+1);
- for(let k in counts){shtml+=`<div class="series" onclick="active='${k}';render()">${k} (${counts[k]})</div>`}
-shtml+='<div class="series" onclick="active=&quot;&quot;;render()">Wszystkie</div>';
- let h=''; for(let k in series){h+=`<div class='group'><h2>${k}</h2><div class='cards'>`; series[k].forEach(m=>{
+ for(let k in counts){
+  shtml+=`<div class="series" onclick="active='${k}';render()">${k} (${counts[k]})</div>`;
+}
+
+shtml+=`<div class="series" onclick="active='';render()">Wszystkie</div>`;
+
+document.getElementById('serie').innerHTML = shtml;
+
+let h=''; for(let k in series){h+=`<div class='group'><h2>${k}</h2><div class='cards'>`; series[k].forEach(m=>{
  h+=`<div class='card'><div class='images'><div class='imgbox'>AWERS</div><div class='imgbox'>REWERS</div></div><h3>${m.nazwa}</h3><p>Rok: ${m.rok}<p>Rok: ${m.rok}</p>
 <p>Nominał: 20 zł</p>
 <p>Stan: ${notes[m.nazwa]?.stan || '-'}</p>
