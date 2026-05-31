@@ -1,178 +1,321 @@
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kolekcja Monet</title>
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kolekcja Tatko1980</title>
 <style>
-body{font-family:Arial,sans-serif;max-width:1400px;margin:auto;padding:20px;background:#f4f4f4}
-.card{background:white;padding:15px;border-radius:10px;margin-bottom:15px}
-input,textarea,select{width:100%;padding:8px;margin:4px 0;box-sizing:border-box}
-button{padding:10px 14px;cursor:pointer}
-table{width:100%;border-collapse:collapse;background:white}
-th,td{border:1px solid #ccc;padding:8px;text-align:left}
-img{max-width:120px;max-height:120px}
-</style>
-</head>
-<body>
-
-<h1>🪙 Moja Kolekcja Monet</h1>
-
-<div class="card">
-<h3>Dodaj monetę</h3>
-<input id="kraj" placeholder="Kraj">
-<input id="nominal" placeholder="Nominał">
-<input id="rok" placeholder="Rok">
-<input id="stan" placeholder="Stan">
-<textarea id="uwagi" placeholder="Uwagi"></textarea>
-
-<label>Awers</label>
-<input type="file" id="awers">
-
-<label>Rewers</label>
-<input type="file" id="rewers">
-
-<button onclick="dodajMonete()">Dodaj monetę</button>
+body{font-family:Arial;max-width:1400px;margin:auto;padding:20px;background:#f2f2f2}
+.stats{display:flex;gap:15px;flex-wrap:wrap}
+.box,.card{background:white;border-radius:12px;padding:15px}
+.box{min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:15px}
+.pics{display:flex;gap:10px}
+.ph{border:2px dashed #bbb;padding:15px;text-align:center;flex:1}
+input[type=text]{width:100%;padding:10px;margin:15px 0}
+</style></head><body>
+<h1>🪙 Kolekcja Monet NBP - Tatko1980</h1>
+<div class="stats">
+<div class="box"><h2>29</h2>Monet</div>
+<div class="box"><h2>8</h2>Zwierzęta Świata</div>
+<div class="box"><h2>5</h2>Zabytki</div>
 </div>
-
+<input type="text" id="sz" placeholder="Szukaj monety..." onkeyup="filtruj()">
+<div class="grid" id="grid">
 <div class="card">
-<input id="szukaj" placeholder="Szukaj..." onkeyup="wyswietlMonety()">
-
-<select id="sortowanie" onchange="wyswietlMonety()">
-<option value="">Bez sortowania</option>
-<option value="rok">Rok</option>
-<option value="kraj">Kraj</option>
-<option value="nominal">Nominał</option>
-</select>
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
 </div>
-
+<h3>50. rocznica powstania ONZ</h3>
+<p><b>Rok:</b> 1995</p>
+<p><b>Seria:</b> Rocznice</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
 <div class="card">
-<b>Liczba monet:</b> <span id="licznik">0</span>
-<br><br>
-<button onclick="eksportuj()">Eksport JSON</button>
-<input type="file" id="importPlik" onchange="importuj(event)">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
 </div>
-
+<h3>Zamek w Kórniku</h3>
+<p><b>Rok:</b> 1998</p>
+<p><b>Seria:</b> Zabytki</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
 <div class="card">
-<h3>Statystyki krajów</h3>
-<div id="statystyki"></div>
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
 </div>
-
-<table>
-<thead>
-<tr>
-<th>Awers</th>
-<th>Rewers</th>
-<th>Kraj</th>
-<th>Nominał</th>
-<th>Rok</th>
-<th>Stan</th>
-<th>Uwagi</th>
-<th>Usuń</th>
-</tr>
-</thead>
-<tbody id="tabela"></tbody>
-</table>
-
+<h3>100-lecie odkrycia radu i polonu</h3>
+<p><b>Rok:</b> 1998</p>
+<p><b>Seria:</b> Nauka</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Kolędnicy</h3>
+<p><b>Rok:</b> 2001</p>
+<p><b>Seria:</b> Tradycje</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Śmigus-Dyngus</h3>
+<p><b>Rok:</b> 2003</p>
+<p><b>Seria:</b> Tradycje</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Morświn</h3>
+<p><b>Rok:</b> 2004</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Dożynki</h3>
+<p><b>Rok:</b> 2004</p>
+<p><b>Seria:</b> Tradycje</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>15-lecie Senatu III RP</h3>
+<p><b>Rok:</b> 2004</p>
+<p><b>Seria:</b> Rocznice</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>350-lecie obrony Jasnej Góry</h3>
+<p><b>Rok:</b> 2005</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Świstak</h3>
+<p><b>Rok:</b> 2006</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Kościół w Haczowie</h3>
+<p><b>Rok:</b> 2006</p>
+<p><b>Seria:</b> Zabytki</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Miasto średniowieczne w Toruniu</h3>
+<p><b>Rok:</b> 2007</p>
+<p><b>Seria:</b> Zabytki</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Foka szara</h3>
+<p><b>Rok:</b> 2007</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>90. rocznica Odzyskania Niepodległości</h3>
+<p><b>Rok:</b> 2008</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Kazimierz Dolny</h3>
+<p><b>Rok:</b> 2008</p>
+<p><b>Seria:</b> Zabytki</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Sokół wędrowny</h3>
+<p><b>Rok:</b> 2008</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Polacy ratujący Żydów</h3>
+<p><b>Rok:</b> 2009</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>65. rocznica getta w Łodzi</h3>
+<p><b>Rok:</b> 2009</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Krzeszów</h3>
+<p><b>Rok:</b> 2010</p>
+<p><b>Seria:</b> Zabytki</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Podkowiec mały</h3>
+<p><b>Rok:</b> 2010</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Smoleńsk</h3>
+<p><b>Rok:</b> 2010</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>90. rocznica bitwy warszawskiej</h3>
+<p><b>Rok:</b> 2010</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Borsuk</h3>
+<p><b>Rok:</b> 2011</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Beatyfikacja Jana Pawła II</h3>
+<p><b>Rok:</b> 2011</p>
+<p><b>Seria:</b> Religia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Jaszczurka zielona</h3>
+<p><b>Rok:</b> 2012</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Polacy ratujący Żydów</h3>
+<p><b>Rok:</b> 2012</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Patrioci 1944 Obywatele</h3>
+<p><b>Rok:</b> 2014</p>
+<p><b>Seria:</b> Historia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Konik polski</h3>
+<p><b>Rok:</b> 2014</p>
+<p><b>Seria:</b> Zwierzęta Świata</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div>
+<div class="card">
+<div class="pics">
+<div class="ph">AWERS<br><input type='file'></div>
+<div class="ph">REWERS<br><input type='file'></div>
+</div>
+<h3>Pięć wieków reformacji</h3>
+<p><b>Rok:</b> 2017</p>
+<p><b>Seria:</b> Religia</p>
+<p><b>Nominał:</b> 20 zł</p>
+</div></div>
 <script>
-let monety = JSON.parse(localStorage.getItem("monety")) || [];
-
-function zapisz(){
-localStorage.setItem("monety",JSON.stringify(monety));
-}
-
-function czytajPlik(plik){
-return new Promise(resolve=>{
-if(!plik){resolve("");return;}
-const r=new FileReader();
-r.onload=e=>resolve(e.target.result);
-r.readAsDataURL(plik);
+function filtruj(){
+let q=document.getElementById('sz').value.toLowerCase();
+document.querySelectorAll('.card').forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
 });
 }
-
-async function dodajMonete(){
-const awers=await czytajPlik(document.getElementById("awers").files[0]);
-const rewers=await czytajPlik(document.getElementById("rewers").files[0]);
-
-monety.push({
-kraj:kraj.value,
-nominal:nominal.value,
-rok:rok.value,
-stan:stan.value,
-uwagi:uwagi.value,
-awers:awers,
-rewers:rewers
-});
-
-zapisz();
-wyswietlMonety();
-}
-
-function usun(i){
-if(confirm("Usunąć monetę?")){
-monety.splice(i,1);
-zapisz();
-wyswietlMonety();
-}
-}
-
-function wyswietlMonety(){
-let lista=[...monety];
-
-const s=szukaj.value.toLowerCase();
-lista=lista.filter(m=>(`${m.kraj} ${m.nominal} ${m.rok}`).toLowerCase().includes(s));
-
-const sort=sortowanie.value;
-if(sort){
-lista.sort((a,b)=>String(a[sort]).localeCompare(String(b[sort]),'pl'));
-}
-
-let html="";
-lista.forEach(m=>{
-const idx=monety.indexOf(m);
-html+=`<tr>
-<td>${m.awers?`<img src="${m.awers}">`:''}</td>
-<td>${m.rewers?`<img src="${m.rewers}">`:''}</td>
-<td>${m.kraj||''}</td>
-<td>${m.nominal||''}</td>
-<td>${m.rok||''}</td>
-<td>${m.stan||''}</td>
-<td>${m.uwagi||''}</td>
-<td><button onclick="usun(${idx})">X</button></td>
-</tr>`;
-});
-tabela.innerHTML=html;
-licznik.innerText=monety.length;
-
-const kraje={};
-monety.forEach(m=>{
-kraje[m.kraj]=(kraje[m.kraj]||0)+1;
-});
-statystyki.innerHTML=Object.entries(kraje).map(([k,v])=>`${k}: ${v}`).join("<br>");
-}
-
-function eksportuj(){
-const blob=new Blob([JSON.stringify(monety,null,2)],{type:"application/json"});
-const a=document.createElement("a");
-a.href=URL.createObjectURL(blob);
-a.download="kolekcja_monet.json";
-a.click();
-}
-
-function importuj(e){
-const plik=e.target.files[0];
-if(!plik) return;
-const r=new FileReader();
-r.onload=function(ev){
-monety=JSON.parse(ev.target.result);
-zapisz();
-wyswietlMonety();
-};
-r.readAsText(plik);
-}
-
-wyswietlMonety();
 </script>
-</body>
-</html>
+</body></html>
