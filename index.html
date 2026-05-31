@@ -1,89 +1,62 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moja Kolekcja Monet</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolekcja Monet</title>
 <style>
-body{
-font-family:Arial,sans-serif;
-max-width:1200px;
-margin:auto;
-padding:20px;
-background:#f4f4f4;
-}
-
-h1{
-text-align:center;
-}
-
-.card{
-background:white;
-padding:15px;
-border-radius:10px;
-margin-bottom:20px;
-}
-
-input,textarea{
-width:100%;
-padding:8px;
-margin:5px 0;
-box-sizing:border-box;
-}
-
-button{
-padding:10px 15px;
-cursor:pointer;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-background:white;
-}
-
-th,td{
-border:1px solid #ccc;
-padding:8px;
-}
-
-img{
-max-width:100px;
-max-height:100px;
-}
+body{font-family:Arial,sans-serif;max-width:1400px;margin:auto;padding:20px;background:#f4f4f4}
+.card{background:white;padding:15px;border-radius:10px;margin-bottom:15px}
+input,textarea,select{width:100%;padding:8px;margin:4px 0;box-sizing:border-box}
+button{padding:10px 14px;cursor:pointer}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{border:1px solid #ccc;padding:8px;text-align:left}
+img{max-width:120px;max-height:120px}
 </style>
 </head>
-
 <body>
 
 <h1>🪙 Moja Kolekcja Monet</h1>
 
 <div class="card">
 <h3>Dodaj monetę</h3>
-
 <input id="kraj" placeholder="Kraj">
 <input id="nominal" placeholder="Nominał">
 <input id="rok" placeholder="Rok">
 <input id="stan" placeholder="Stan">
 <textarea id="uwagi" placeholder="Uwagi"></textarea>
 
-<label>Awers:</label>
+<label>Awers</label>
 <input type="file" id="awers">
 
-<label>Rewers:</label>
+<label>Rewers</label>
 <input type="file" id="rewers">
 
 <button onclick="dodajMonete()">Dodaj monetę</button>
 </div>
 
 <div class="card">
-<h3>Wyszukiwanie</h3>
 <input id="szukaj" placeholder="Szukaj..." onkeyup="wyswietlMonety()">
+
+<select id="sortowanie" onchange="wyswietlMonety()">
+<option value="">Bez sortowania</option>
+<option value="rok">Rok</option>
+<option value="kraj">Kraj</option>
+<option value="nominal">Nominał</option>
+</select>
 </div>
 
 <div class="card">
-<h3>Liczba monet: <span id="licznik">0</span></h3>
+<b>Liczba monet:</b> <span id="licznik">0</span>
+<br><br>
+<button onclick="eksportuj()">Eksport JSON</button>
+<input type="file" id="importPlik" onchange="importuj(event)">
+</div>
+
+<div class="card">
+<h3>Statystyki krajów</h3>
+<div id="statystyki"></div>
 </div>
 
 <table>
@@ -103,92 +76,103 @@ max-height:100px;
 </table>
 
 <script>
-
 let monety = JSON.parse(localStorage.getItem("monety")) || [];
 
 function zapisz(){
-localStorage.setItem("monety", JSON.stringify(monety));
+localStorage.setItem("monety",JSON.stringify(monety));
 }
 
-function dodajMonete(){
-
-const plik=document.getElementById("zdjecie").files[0];
-
-if(plik){
-
-const reader=new FileReader();
-
-reader.onload=function(e){
-
-monety.push({
-kraj:document.getElementById("kraj").value,
-nominal:document.getElementById("nominal").value,
-rok:document.getElementById("rok").value,
-stan:document.getElementById("stan").value,
-uwagi:document.getElementById("uwagi").value,
-zdjecie:e.target.result
+function czytajPlik(plik){
+return new Promise(resolve=>{
+if(!plik){resolve("");return;}
+const r=new FileReader();
+r.onload=e=>resolve(e.target.result);
+r.readAsDataURL(plik);
 });
+}
 
-zapisz();
-wyswietlMonety();
-};
-
-reader.readAsDataURL(plik);
-
-}else{
+async function dodajMonete(){
+const awers=await czytajPlik(document.getElementById("awers").files[0]);
+const rewers=await czytajPlik(document.getElementById("rewers").files[0]);
 
 monety.push({
-kraj:document.getElementById("kraj").value,
-nominal:document.getElementById("nominal").value,
-rok:document.getElementById("rok").value,
-stan:document.getElementById("stan").value,
-uwagi:document.getElementById("uwagi").value,
-zdjecie:""
+kraj:kraj.value,
+nominal:nominal.value,
+rok:rok.value,
+stan:stan.value,
+uwagi:uwagi.value,
+awers:awers,
+rewers:rewers
 });
 
 zapisz();
 wyswietlMonety();
 }
-}
 
-function usun(index){
-monety.splice(index,1);
+function usun(i){
+if(confirm("Usunąć monetę?")){
+monety.splice(i,1);
 zapisz();
 wyswietlMonety();
+}
 }
 
 function wyswietlMonety(){
+let lista=[...monety];
 
-const szukaj=document.getElementById("szukaj").value.toLowerCase();
+const s=szukaj.value.toLowerCase();
+lista=lista.filter(m=>(`${m.kraj} ${m.nominal} ${m.rok}`).toLowerCase().includes(s));
+
+const sort=sortowanie.value;
+if(sort){
+lista.sort((a,b)=>String(a[sort]).localeCompare(String(b[sort]),'pl'));
+}
 
 let html="";
-
-monety.forEach((m,index)=>{
-
-const tekst=(m.kraj+" "+m.nominal+" "+m.rok).toLowerCase();
-
-if(!tekst.includes(szukaj)) return;
-
-html+=`
-<tr><td>${m.awers ? `<img src="${m.awers}">` : ''}</td>
-<td>${m.rewers ? `<img src="${m.rewers}">` : ''}</td>
-<td>${m.kraj}</td>
-<td>${m.nominal}</td>
-<td>${m.rok}</td>
-<td>${m.stan}</td>
-<td>${m.uwagi}</td>
-<td><button onclick="usun(${index})">X</button></td>
-</tr>
-`;
+lista.forEach(m=>{
+const idx=monety.indexOf(m);
+html+=`<tr>
+<td>${m.awers?`<img src="${m.awers}">`:''}</td>
+<td>${m.rewers?`<img src="${m.rewers}">`:''}</td>
+<td>${m.kraj||''}</td>
+<td>${m.nominal||''}</td>
+<td>${m.rok||''}</td>
+<td>${m.stan||''}</td>
+<td>${m.uwagi||''}</td>
+<td><button onclick="usun(${idx})">X</button></td>
+</tr>`;
 });
+tabela.innerHTML=html;
+licznik.innerText=monety.length;
 
-document.getElementById("tabela").innerHTML=html;
-document.getElementById("licznik").innerText=monety.length;
+const kraje={};
+monety.forEach(m=>{
+kraje[m.kraj]=(kraje[m.kraj]||0)+1;
+});
+statystyki.innerHTML=Object.entries(kraje).map(([k,v])=>`${k}: ${v}`).join("<br>");
+}
+
+function eksportuj(){
+const blob=new Blob([JSON.stringify(monety,null,2)],{type:"application/json"});
+const a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="kolekcja_monet.json";
+a.click();
+}
+
+function importuj(e){
+const plik=e.target.files[0];
+if(!plik) return;
+const r=new FileReader();
+r.onload=function(ev){
+monety=JSON.parse(ev.target.result);
+zapisz();
+wyswietlMonety();
+};
+r.readAsText(plik);
 }
 
 wyswietlMonety();
-
 </script>
-
 </body>
 </html>
