@@ -203,4 +203,9 @@ h2{
         grid-template-columns:1fr;
     }
 }
+.series.active{
+    background:#d4a72c;
+    color:#111;
+    font-weight:bold;
+}
 
