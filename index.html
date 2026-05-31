@@ -1,43 +1,23 @@
-
-<!DOCTYPE html>
-<html lang="pl"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Moja Kolekcja Monet NBP</title>
-<link rel="stylesheet" href="css/style.css">
-</head><body>
-<header><h1>🪙 Moja Kolekcja Monet NBP</h1></header>
-<div class="stats">
-<div class="stat"><h3 id="liczba">29</h3>Monet</div>
-<div class="stat"><h3>1995-2017</h3>Lata emisji</div>
-</div>
-<div id="content"></div>
+<!doctype html><html lang='pl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><link rel='stylesheet' href='css/style.css'><title>Kolekcja</title></head><body>
+<div class='layout'>
+<div class='sidebar'><h2>🪙 Kolekcja</h2><div id='serie'></div></div>
+<div class='main'>
+<div class='stats'><div class='stat'><h2>29</h2>Monet</div><div class='stat'><h2>1995-2017</h2>Lata emisji</div></div>
+<p><input id='search' placeholder='Szukaj monety...'></p>
+<div id='content'></div>
+</div></div>
 <script>
-fetch('data/monety.json')
-.then(r=>r.json())
-.then(monety=>{
-const serie={};
-monety.forEach(m=>{
- if(!serie[m.seria]) serie[m.seria]=[];
- serie[m.seria].push(m);
-});
-let html='';
-for(const [seria,lista] of Object.entries(serie)){
- html+=`<h2>${seria} (${lista.length})</h2><div class="grid">`;
- lista.forEach(m=>{
-  html+=`<div class="card">
-  <div class="images">
-  <div class="placeholder">AWERS</div>
-  <div class="placeholder">REWERS</div>
-  </div>
-  <h3>${m.nazwa}</h3>
-  <p>Rok: ${m.rok}</p>
-  <p>Nominał: 20 zł</p>
-  <button>Edytuj</button>
-  </div>`;
- });
- html+='</div>';
+let all=[]; let active='';
+fetch('data/monety.json').then(r=>r.json()).then(d=>{all=d;render();});
+document.getElementById('search').oninput=render;
+function render(){
+ let q=document.getElementById('search').value.toLowerCase();
+ let series={}; all.forEach(m=>{if(active && m.seria!=active)return; if(!m.nazwa.toLowerCase().includes(q))return; (series[m.seria]??=[]).push(m)});
+ let shtml=''; let counts={}; all.forEach(m=>counts[m.seria]=(counts[m.seria]||0)+1);
+ for(let k in counts){shtml+=`<div class="series" onclick="active='${k}';render()">${k} (${counts[k]})</div>`}
+ shtml+='<div class="series" onclick="active='';render()">Wszystkie</div>'; document.getElementById('serie').innerHTML=shtml;
+ let h=''; for(let k in series){h+=`<div class='group'><h2>${k}</h2><div class='cards'>`; series[k].forEach(m=>{
+ h+=`<div class='card'><div class='images'><div class='imgbox'>AWERS</div><div class='imgbox'>REWERS</div></div><h3>${m.nazwa}</h3><p>Rok: ${m.rok}</p><p>Nominał: 20 zł</p><button>Edytuj</button></div>`}); h+='</div></div>';}
+ document.getElementById('content').innerHTML=h;
 }
-document.getElementById('content').innerHTML=html;
-});
-</script>
-</body></html>
+</script></body></html>
