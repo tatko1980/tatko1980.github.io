@@ -16,7 +16,17 @@ function render(){
  let q=document.getElementById('search').value.toLowerCase();
  let series={}; all.forEach(m=>{if(active && m.seria!=active)return; if(!m.nazwa.toLowerCase().includes(q))return; (series[m.seria]??=[]).push(m)});
  let shtml=''; let counts={}; all.forEach(m=>counts[m.seria]=(counts[m.seria]||0)+1);
- for(let k in counts){
+ let allClass = active===''
+  ? 'series active'
+  : 'series';
+
+shtml += `
+  <div class="${allClass}" onclick="active='';render()">
+    Wszystkie
+  </div>
+`;
+
+for(let k in counts){
 
   let cls = active===k
     ? "series active"
@@ -28,16 +38,6 @@ function render(){
     </div>
   `;
 }
-
-let allClass = active==='' 
-  ? 'series active'
-  : 'series';
-
-shtml += `
-  <div class="${allClass}" onclick="active='';render()">
-    Wszystkie
-  </div>
-`;
 
 document.getElementById('serie').innerHTML = shtml;
 
