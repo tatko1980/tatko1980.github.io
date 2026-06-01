@@ -41,30 +41,59 @@ for(let k in counts){
 
 document.getElementById('serie').innerHTML = shtml;
 
-let h=''; for(let k in series){h+=`<div class='group'><h2>${k}</h2><div class='cards'>`; series[k].forEach(m=>{
- h+=`<div class='card'd><div class='images'>
-  <div class='imgbox'>
-    <div class='images'>
-  <div class='imgbox'>
-    ${m.awers
-      ? `<img src="${m.awers}" class="coinimg" alt="Awers">`
-      : `AWERS`
-    }
-  </div>
+let h='';
 
-  <div class='imgbox'>
-    ${m.rewers
-      ? `<img src="${m.rewers}" class="coinimg" alt="Rewers">`
-      : `REWERS`
-    }
-  </div>
-</div>
+for(let k in series){
 
-</div><h3>${m.nazwa}</h3><p>Rok: ${m.rok}<p>Rok: ${m.rok}</p>
-<p>Nominał: 20 zł</p>
-<p>Stan: ${notes[m.nazwa]?.stan || '-'}</p>
-<p>Wartość: ${notes[m.nazwa]?.wartosc || '-'} zł</p><button onclick="editCoin('${m.nazwa}')">Edytuj</button></div>`}); h+='</div></div>';}
- document.getElementById('content').innerHTML=h;
+  h += `<div class='group'>
+          <h2>${k}</h2>
+          <div class='cards'>`;
+
+  series[k].forEach(m => {
+
+    h += `
+      <div class='card'>
+
+        <div class='images'>
+
+          <div class='imgbox'>
+            ${
+              m.awers
+              ? `<img src="${m.awers}" class="coinimg">`
+              : `AWERS`
+            }
+          </div>
+
+          <div class='imgbox'>
+            ${
+              m.rewers
+              ? `<img src="${m.rewers}" class="coinimg">`
+              : `REWERS`
+            }
+          </div>
+
+        </div>
+
+        <h3>${m.nazwa}</h3>
+
+        <p><strong>Rok:</strong> ${m.rok}</p>
+        <p><strong>Nominał:</strong> 20 zł</p>
+        <p><strong>Stan:</strong> ${notes[m.nazwa]?.stan || '-'}</p>
+        <p><strong>Wartość:</strong> ${notes[m.nazwa]?.wartosc || '-'} zł</p>
+
+        <button onclick="editCoin('${m.nazwa}')">
+          Edytuj
+        </button>
+
+      </div>
+    `;
+
+  });
+
+  h += `</div></div>`;
+}
+
+document.getElementById('content').innerHTML = h;
 }
  function editCoin(name){
 
