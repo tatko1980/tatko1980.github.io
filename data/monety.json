@@ -8,10 +8,13 @@
   "awers": "img/onz_awers.jpg",
   "rewers": "img/onz_rewers.jpg"
 },
-  {
-    "rok": 1998,
-    "nazwa": "Zamek w Kórniku",
-    "seria": "Zabytki Kultury Materialnej"
+ {
+  "rok": 1998,
+  "nazwa": "Zamek w Kórniku",
+  "seria": "Zabytki Kultury Materialnej",
+  "awers": "img/zamek_kornik_awers.jpg",
+  "rewers": "img/zamek_kornik_rewers.jpg"
+}
   },
   {
     "rok": 1998,
