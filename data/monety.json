@@ -30,10 +30,12 @@
   "rewers": "img/kolednicy_rewers.jpg"
 },
   {
-    "rok": 2003,
-    "nazwa": "Śmigus-Dyngus",
-    "seria": "Tradycje i Święta"
-  },
+  "rok": 2003,
+  "nazwa": "Śmigus-Dyngus",
+  "seria": "Tradycje i Święta",
+  "awers": "img/smigus_dyngus_awers.jpg",
+  "rewers": "img/smigus_dyngus_rewers.jpg"
+},
   {
     "rok": 2004,
     "nazwa": "Morświn",
