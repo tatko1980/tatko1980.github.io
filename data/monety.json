@@ -86,9 +86,11 @@
   "rewers": "img/torun_rewers.jpg"
   },
   {
-    "rok": 2007,
-    "nazwa": "Foka szara",
-    "seria": "Zwierzęta Świata"
+  "rok": 2007,
+  "nazwa": "Foka szara",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/foka_awers.jpg",
+  "rewers": "img/foka_rewers.jpg"
   },
   {
     "rok": 2008,
