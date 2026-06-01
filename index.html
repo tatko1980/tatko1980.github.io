@@ -59,7 +59,8 @@ for(let k in series){
           <div class='imgbox'>
             ${
               m.awers
-              ? `<img src="${m.awers}" class="coinimg">`
+              ? `<img src="${m.awers}" class="coinimg"
+onclick="openViewer('${m.awers}')">`
               : `AWERS`
             }
           </div>
@@ -67,7 +68,8 @@ for(let k in series){
           <div class='imgbox'>
             ${
               m.rewers
-              ? `<img src="${m.rewers}" class="coinimg">`
+              ? `<img src="${m.rewers}" class="coinimg"
+onclick="openViewer('${m.rewers}')">`
               : `REWERS`
             }
           </div>
@@ -94,6 +96,14 @@ for(let k in series){
 }
 
 document.getElementById('content').innerHTML = h;
+}
+ function openViewer(src){
+  document.getElementById('viewerImg').src = src;
+  document.getElementById('viewer').style.display = 'flex';
+}
+
+function closeViewer(){
+  document.getElementById('viewer').style.display = 'none';
 }
  function editCoin(name){
 
@@ -146,4 +156,11 @@ document.getElementById('content').innerHTML = h;
 
   alert('Zapisano');
 }
-</script></body></html>
+</script>
+
+<div id="viewer" class="viewer" onclick="closeViewer()">
+  <img id="viewerImg">
+</div>
+
+</body>
+</html>
