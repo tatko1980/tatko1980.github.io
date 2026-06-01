@@ -121,7 +121,7 @@ function closeModal(){
   document.getElementById('editModal').style.display = 'none';
 }
 
-function saveCoin(){
+ffunction saveCoin(){
 
   let name = document.getElementById('editName').value;
 
@@ -130,19 +130,10 @@ function saveCoin(){
     notatka: document.getElementById('editNotatka').value
   };
 
-  localStorage.setItem(
-    'notes',
-    JSON.stringify(notes)
-  );
+  localStorage.setItem('notes', JSON.stringify(notes));
 
   closeModal();
   render();
-  };
-
-  localStorage.setItem(
-    'notes',
-    JSON.stringify(notes)
-  );
 
   alert('Zapisano');
 }
