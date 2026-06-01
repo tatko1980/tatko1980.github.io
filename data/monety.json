@@ -15,10 +15,12 @@
     "awers": "img/zamek_kornik_awers.jpg",
     "rewers": "img/zamek_kornik_rewers.jpg"
   },
-  {
-    "rok": 1998,
-    "nazwa": "100-lecie odkrycia radu i polonu",
-    "seria": "Nauka i Odkrycia"
+ {
+  "rok": 1998,
+  "nazwa": "100-lecie odkrycia radu i polonu",
+  "seria": "Nauka i Odkrycia",
+  "awers": "img/rad_polon_awers.jpg",
+  "rewers": "img/rad_polon_rewers.jpg"
   },
   {
     "rok": 2001,
