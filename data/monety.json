@@ -44,9 +44,11 @@
   "rewers": "img/morswin_rewers.jpg"
   },
   {
-    "rok": 2004,
-    "nazwa": "Dożynki",
-    "seria": "Tradycje i Święta"
+  "rok": 2004,
+  "nazwa": "Dożynki",
+  "seria": "Tradycje i Święta",
+  "awers": "img/dozynki_awers.jpg",
+  "rewers": "img/dozynki_rewers.jpg"
   },
   {
     "rok": 2004,
