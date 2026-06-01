@@ -65,9 +65,11 @@
   "rewers": "img/jasna_gora_rewers.jpg"
   },
   {
-    "rok": 2006,
-    "nazwa": "Świstak",
-    "seria": "Zwierzęta Świata"
+  "rok": 2006,
+  "nazwa": "Świstak",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/swistak_awers.jpg",
+  "rewers": "img/swistak_rewers.jpg"
   },
   {
     "rok": 2006,
