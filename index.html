@@ -81,7 +81,6 @@ onclick="openViewer('${m.rewers}')">`
         <p><strong>Rok:</strong> ${m.rok}</p>
         <p><strong>Nominał:</strong> 20 zł</p>
         <p><strong>Stan:</strong> ${notes[m.nazwa]?.stan || '-'}</p>
-        <p><strong>Wartość:</strong> ${notes[m.nazwa]?.wartosc || '-'} zł</p>
 
         <button onclick="editCoin('${m.nazwa}')">
           Edytuj
@@ -109,8 +108,6 @@ function closeViewer(){
 
   let current = notes[name] || {
     stan:'',
-    cena:'',
-    wartosc:'',
     notatka:''
   };
 
@@ -120,21 +117,7 @@ function closeViewer(){
   );
 
   if(stan===null) return;
-
-  let cena = prompt(
-    'Cena zakupu (zł):',
-    current.cena
   );
-
-  if(cena===null) return;
-
-  let wartosc = prompt(
-    'Aktualna wartość (zł):',
-    current.wartosc
-  );
-
-  if(wartosc===null) return;
-
   let notatka = prompt(
     'Notatki:',
     current.notatka
@@ -144,8 +127,6 @@ function closeViewer(){
 
   notes[name]={
     stan,
-    cena,
-    wartosc,
     notatka
   };
 
