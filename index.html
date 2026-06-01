@@ -111,6 +111,33 @@ function closeViewer(){
     notatka:''
   };
 
+  document.getElementById('editName').value = name;
+  document.getElementById('editStan').value = current.stan || '';
+  document.getElementById('editNotatka').value = current.notatka || '';
+
+  document.getElementById('editModal').style.display = 'flex';
+};
+function closeModal(){
+  document.getElementById('editModal').style.display = 'none';
+}
+
+function saveCoin(){
+
+  let name = document.getElementById('editName').value;
+
+  notes[name] = {
+    stan: document.getElementById('editStan').value,
+    notatka: document.getElementById('editNotatka').value
+  };
+
+  localStorage.setItem(
+    'notes',
+    JSON.stringify(notes)
+  );
+
+  closeModal();
+  render();
+};
   let stan = prompt(
     'Stan monety:',
     current.stan
@@ -141,6 +168,27 @@ function closeViewer(){
 <div id="viewer" class="viewer" onclick="closeViewer()">
   <img id="viewerImg">
 </div>
+<div id="editModal" class="modal">
 
+  <div class="modal-content">
+
+    <h2>Edycja monety</h2>
+
+    <input type="hidden" id="editName">
+
+    <label>Stan monety</label>
+    <input id="editStan" type="text">
+
+    <label>Notatka</label>
+    <textarea id="editNotatka"></textarea>
+
+    <div class="modal-buttons">
+      <button onclick="saveCoin()">Zapisz</button>
+      <button onclick="closeModal()">Anuluj</button>
+    </div>
+
+  </div>
+
+</div>
 </body>
 </html>
