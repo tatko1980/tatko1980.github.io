@@ -58,9 +58,11 @@
   "rewers": "img/senat_rewers.jpg"
   },
   {
-    "rok": 2005,
-    "nazwa": "350-lecie obrony Jasnej Góry",
-    "seria": "Historia Polski"
+  "rok": 2005,
+  "nazwa": "350-lecie obrony Jasnej Góry",
+  "seria": "Historia Polski",
+  "awers": "img/jasna_gora_awers.jpg",
+  "rewers": "img/jasna_gora_rewers.jpg"
   },
   {
     "rok": 2006,
