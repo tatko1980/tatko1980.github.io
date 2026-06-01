@@ -130,12 +130,12 @@ ffunction saveCoin(){
     notatka: document.getElementById('editNotatka').value
   };
 
-  localStorage.setItem('notes', JSON.stringify(notes));
+closeModal();
+render();
 
-  closeModal();
-  render();
+localStorage.setItem('notes', JSON.stringify(notes));
 
-  alert('Zapisano');
+alert('Zapisano');
 }
 </script>
 
