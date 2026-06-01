@@ -251,5 +251,58 @@ h2{
 
 .coinimg{
     cursor:pointer;
+    .modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal-content{
+    width:500px;
+    max-width:90%;
+    background:#0d1729;
+    border:1px solid #2f3b52;
+    border-radius:14px;
+    padding:24px;
+}
+
+.modal-content h2{
+    margin-top:0;
+}
+
+.modal-content label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+}
+
+.modal-content input,
+.modal-content textarea{
+    width:100%;
+    box-sizing:border-box;
+    background:#101c31;
+    border:1px solid #2f3b52;
+    color:white;
+    border-radius:8px;
+    padding:10px;
+}
+
+.modal-content textarea{
+    height:120px;
+    resize:vertical;
+}
+
+.modal-buttons{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+}
+
+.modal-buttons button{
+    flex:1;
 }
 
