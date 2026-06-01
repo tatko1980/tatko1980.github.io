@@ -72,9 +72,11 @@
   "rewers": "img/swistak_rewers.jpg"
   },
   {
-    "rok": 2006,
-    "nazwa": "Kościół w Haczowie",
-    "seria": "Zabytki Kultury Materialnej"
+  "rok": 2006,
+  "nazwa": "Kościół w Haczowie",
+  "seria": "Zabytki Kultury Materialnej",
+  "awers": "img/haczow_awers.jpg",
+  "rewers": "img/haczow_rewers.jpg"
   },
   {
     "rok": 2007,
