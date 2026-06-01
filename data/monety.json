@@ -22,11 +22,13 @@
   "awers": "img/rad_polon_awers.jpg",
   "rewers": "img/rad_polon_rewers.jpg"
   },
-  {
-    "rok": 2001,
-    "nazwa": "Kolędnicy",
-    "seria": "Tradycje i Święta"
-  },
+ {
+  "rok": 2001,
+  "nazwa": "Kolędnicy",
+  "seria": "Tradycje i Święta",
+  "awers": "img/kolednicy_awers.jpg",
+  "rewers": "img/kolednicy_rewers.jpg"
+},
   {
     "rok": 2003,
     "nazwa": "Śmigus-Dyngus",
