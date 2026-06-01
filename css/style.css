@@ -214,5 +214,23 @@ h2{
     object-fit:contain;
     border-radius:10px;
 }
+.coinimg{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.imgbox{
+    flex:1;
+    height:220px;
+    border:1px dashed #555;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    color:#888;
+}
 }
 
