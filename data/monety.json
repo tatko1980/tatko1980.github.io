@@ -51,9 +51,11 @@
   "rewers": "img/dozynki_rewers.jpg"
   },
   {
-    "rok": 2004,
-    "nazwa": "15-lecie Senatu III RP",
-    "seria": "Historia Polski"
+  "rok": 2004,
+  "nazwa": "15-lecie Senatu III RP",
+  "seria": "Historia Polski",
+  "awers": "img/senat_awers.jpg",
+  "rewers": "img/senat_rewers.jpg"
   },
   {
     "rok": 2005,
