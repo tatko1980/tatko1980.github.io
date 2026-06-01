@@ -2,10 +2,12 @@
 
 [
   {
-    "rok": 1995,
-    "nazwa": "50. rocznica powstania ONZ",
-    "seria": "Historia Polski"
-  },
+  "rok": 1995,
+  "nazwa": "50. rocznica powstania ONZ",
+  "seria": "Historia Polski",
+  "awers": "img/onz_awers.jpg",
+  "rewers": "img/onz_rewers.jpg"
+}
   {
     "rok": 1998,
     "nazwa": "Zamek w Kórniku",
