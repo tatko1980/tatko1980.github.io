@@ -37,9 +37,11 @@
   "rewers": "img/smigus_dyngus_rewers.jpg"
 },
   {
-    "rok": 2004,
-    "nazwa": "Morświn",
-    "seria": "Zwierzęta Świata"
+  "rok": 2004,
+  "nazwa": "Morświn",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/morswin_awers.jpg",
+  "rewers": "img/morswin_rewers.jpg"
   },
   {
     "rok": 2004,
