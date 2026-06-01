@@ -79,9 +79,11 @@
   "rewers": "img/haczow_rewers.jpg"
   },
   {
-    "rok": 2007,
-    "nazwa": "Miasto średniowieczne w Toruniu",
-    "seria": "Zabytki Kultury Materialnej"
+  "rok": 2007,
+  "nazwa": "Miasto średniowieczne w Toruniu",
+  "seria": "Zabytki Kultury Materialnej",
+  "awers": "img/torun_awers.jpg",
+  "rewers": "img/torun_rewers.jpg"
   },
   {
     "rok": 2007,
