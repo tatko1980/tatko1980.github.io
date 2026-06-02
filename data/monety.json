@@ -198,8 +198,10 @@
   "rewers": "img/konik_polski_rewers.jpg"
   },
   {
-    "rok": 2017,
-    "nazwa": "Pięć wieków reformacji",
-    "seria": "Religia"
+  "rok": 2017,
+  "nazwa": "Pięć wieków reformacji",
+  "seria": "Religia",
+  "awers": "img/piec_wiekow_reformacji_awers.jpg",
+  "rewers": "img/piec_wiekow_reformacji_rewers.jpg"
   }
 ]
