@@ -93,9 +93,11 @@
   "rewers": "img/foka_rewers.jpg"
   },
   {
-    "rok": 2008,
-    "nazwa": "90. rocznica Odzyskania Niepodległości",
-    "seria": "Historia Polski"
+  "rok": 2008,
+  "nazwa": "90. rocznica Odzyskania Niepodległości",
+  "seria": "Historia Polski",
+  "awers": "img/90_rocznica_niepodleglosci_awers.jpg",
+  "rewers": "img/90_rocznica_niepodleglosci_rewers.jpg"
   },
   {
     "rok": 2008,
