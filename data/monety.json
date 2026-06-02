@@ -163,9 +163,11 @@
   "rewers": "img/borsuk_rewers.jpg"
   },
   {
-    "rok": 2011,
-    "nazwa": "Beatyfikacja Jana Pawła II",
-    "seria": "Religia"
+  "rok": 2011,
+  "nazwa": "Beatyfikacja Jana Pawła II",
+  "seria": "Religia",
+  "awers": "img/beatyfikacja_jana_pawla_ii_awers.jpg",
+  "rewers": "img/beatyfikacja_jana_pawla_ii_rewers.jpg"
   },
   {
     "rok": 2012,
