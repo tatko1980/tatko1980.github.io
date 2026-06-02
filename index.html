@@ -95,6 +95,11 @@ onclick="openViewer('${m.rewers}')">`
 }
 
 document.getElementById('content').innerHTML = h;
+ document.querySelectorAll('.edit-btn').forEach(btn => {
+  btn.onclick = () => {
+    editCoin(btn.dataset.name);
+  };
+});
 }
  function openViewer(src){
   document.getElementById('viewerImg').src = src;
