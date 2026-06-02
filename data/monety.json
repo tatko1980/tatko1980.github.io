@@ -107,9 +107,11 @@
   "rewers": "img/kazimierz_dolny_rewers.jpg"
   },
   {
-    "rok": 2008,
-    "nazwa": "Sokół wędrowny",
-    "seria": "Zwierzęta Świata"
+  "rok": 2008,
+  "nazwa": "Sokół wędrowny",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/sokol_wedrowny_awers.jpg",
+  "rewers": "img/sokol_wedrowny_rewers.jpg"
   },
   {
     "rok": 2009,
