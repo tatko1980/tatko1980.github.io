@@ -128,9 +128,11 @@
   "rewers": "img/getto_lodz_rewers.jpg"
   },
   {
-    "rok": 2010,
-    "nazwa": "Krzeszów",
-    "seria": "Zabytki Kultury Materialnej"
+  "rok": 2010,
+  "nazwa": "Krzeszów",
+  "seria": "Zabytki Kultury Materialnej",
+  "awers": "img/krzeszow_awers.jpg",
+  "rewers": "img/krzeszow_rewers.jpg"
   },
   {
     "rok": 2010,
