@@ -170,9 +170,11 @@
   "rewers": "img/beatyfikacja_jana_pawla_ii_rewers.jpg"
   },
   {
-    "rok": 2012,
-    "nazwa": "Jaszczurka zielona",
-    "seria": "Zwierzęta Świata"
+  "rok": 2009,
+  "nazwa": "Jaszczurka zielona",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/jaszczurka_zielona_awers.jpg",
+  "rewers": "img/jaszczurka_zielona_rewers.jpg"
   },
   {
     "rok": 2012,
