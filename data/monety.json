@@ -156,9 +156,11 @@
   "rewers": "img/bitwa_warszawska_1920_rewers.jpg"
   },
   {
-    "rok": 2011,
-    "nazwa": "Borsuk",
-    "seria": "Zwierzęta Świata"
+  "rok": 2011,
+  "nazwa": "Borsuk",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/borsuk_awers.jpg",
+  "rewers": "img/borsuk_rewers.jpg"
   },
   {
     "rok": 2011,
