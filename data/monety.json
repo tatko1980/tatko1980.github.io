@@ -100,9 +100,11 @@
   "rewers": "img/90_rocznica_niepodleglosci_rewers.jpg"
   },
   {
-    "rok": 2008,
-    "nazwa": "Kazimierz Dolny",
-    "seria": "Zabytki Kultury Materialnej"
+  "rok": 2008,
+  "nazwa": "Kazimierz Dolny",
+  "seria": "Zabytki Kultury Materialnej",
+  "awers": "img/kazimierz_dolny_awers.jpg",
+  "rewers": "img/kazimierz_dolny_rewers.jpg"
   },
   {
     "rok": 2008,
