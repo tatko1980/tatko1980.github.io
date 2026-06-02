@@ -82,9 +82,9 @@ onclick="openViewer('${m.rewers}')">`
         <p><strong>Nominał:</strong> 20 zł</p>
         <p><strong>Stan:</strong> ${notes[m.nazwa]?.stan || '-'}</p>
 
-        <button onclick="editCoin('${m.nazwa}')">
-          Edytuj
-        </button>
+ <button class="edit-btn" data-name="${m.nazwa}">
+  Edytuj
+</button>
 
       </div>
     `;
