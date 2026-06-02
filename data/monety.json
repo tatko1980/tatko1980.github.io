@@ -135,9 +135,11 @@
   "rewers": "img/krzeszow_rewers.jpg"
   },
   {
-    "rok": 2010,
-    "nazwa": "Podkowiec mały",
-    "seria": "Zwierzęta Świata"
+  "rok": 2010,
+  "nazwa": "Podkowiec mały",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/podkowiec_maly_awers.jpg",
+  "rewers": "img/podkowiec_maly_rewers.jpg"
   },
   {
     "rok": 2010,
