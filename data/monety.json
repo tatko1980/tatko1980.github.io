@@ -114,9 +114,11 @@
   "rewers": "img/sokol_wedrowny_rewers.jpg"
   },
   {
-    "rok": 2009,
-    "nazwa": "Polacy ratujący Żydów",
-    "seria": "Historia Polski"
+  "rok": 2009,
+  "nazwa": "Polacy ratujący Żydów",
+  "seria": "Historia Polski",
+  "awers": "img/polacy_ratujacy_zydow_awers.jpg",
+  "rewers": "img/polacy_ratujacy_zydow_rewers.jpg"
   },
   {
     "rok": 2009,
