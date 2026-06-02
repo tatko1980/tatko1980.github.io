@@ -121,9 +121,11 @@
   "rewers": "img/polacy_ratujacy_zydow_rewers.jpg"
   },
   {
-    "rok": 2009,
-    "nazwa": "65. rocznica getta w Łodzi",
-    "seria": "Historia Polski"
+  "rok": 2009,
+  "nazwa": "65. rocznica getta w Łodzi",
+  "seria": "Historia Polski",
+  "awers": "img/getto_lodz_awers.jpg",
+  "rewers": "img/getto_lodz_rewers.jpg"
   },
   {
     "rok": 2010,
