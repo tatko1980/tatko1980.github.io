@@ -177,9 +177,11 @@
   "rewers": "img/jaszczurka_zielona_rewers.jpg"
   },
   {
-    "rok": 2012,
-    "nazwa": "Polacy ratujący Żydów",
-    "seria": "Historia Polski"
+  "rok": 2012,
+  "nazwa": "Polacy ratujący Żydów",
+  "seria": "Historia Polski",
+  "awers": "img/polacy_ratujacy_zydow_2012_awers.jpg",
+  "rewers": "img/polacy_ratujacy_zydow_2012_rewers.jpg"
   },
   {
     "rok": 2014,
