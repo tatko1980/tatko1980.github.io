@@ -142,9 +142,11 @@
   "rewers": "img/podkowiec_maly_rewers.jpg"
   },
   {
-    "rok": 2010,
-    "nazwa": "Smoleńsk",
-    "seria": "Historia Polski"
+  "rok": 2011,
+  "nazwa": "Smoleńsk",
+  "seria": "Historia Polski",
+  "awers": "img/smolensk_awers.jpg",
+  "rewers": "img/smolensk_rewers.jpg"
   },
   {
     "rok": 2010,
