@@ -251,7 +251,9 @@ h2{
 
 .coinimg{
     cursor:pointer;
-    .modal{
+}
+
+.modal{
     display:none;
     position:fixed;
     inset:0;
@@ -304,14 +306,4 @@ h2{
 
 .modal-buttons button{
     flex:1;
-}
-    .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.75);
-    z-index:9999;
-
-    justify-content:center;
-    align-items:center;
 }
