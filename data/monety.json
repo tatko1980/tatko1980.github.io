@@ -184,9 +184,11 @@
   "rewers": "img/polacy_ratujacy_zydow_2012_rewers.jpg"
   },
   {
-    "rok": 2014,
-    "nazwa": "Patrioci 1944 Obywatele",
-    "seria": "Historia Polski"
+  "rok": 2014,
+  "nazwa": "Patrioci 1944 Obywatele",
+  "seria": "Historia Polski",
+  "awers": "img/patrioci_1944_obywatele_awers.jpg",
+  "rewers": "img/patrioci_1944_obywatele_rewers.jpg"
   },
   {
     "rok": 2014,
