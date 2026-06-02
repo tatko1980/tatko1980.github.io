@@ -191,9 +191,11 @@
   "rewers": "img/patrioci_1944_obywatele_rewers.jpg"
   },
   {
-    "rok": 2014,
-    "nazwa": "Konik polski",
-    "seria": "Zwierzęta Świata"
+  "rok": 2014,
+  "nazwa": "Konik polski",
+  "seria": "Zwierzęta Świata",
+  "awers": "img/konik_polski_awers.jpg",
+  "rewers": "img/konik_polski_rewers.jpg"
   },
   {
     "rok": 2017,
