@@ -1,194 +1,87 @@
-<!doctype html><html lang='pl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><link rel='stylesheet' href='css/style.css'><title>Kolekcja</title></head><body>
-<div class='layout'>
-<div class='sidebar'><h2>🪙 Kolekcja</h2><div id='serie'></div></div>
-<div class='main'>
-<div class='stats'><div class='stat'><h2>29</h2>Monet</div><div class='stat'><h2>1995-2017</h2>Lata emisji</div></div>
-<p><input id='search' placeholder='Szukaj monety...'></p>
-<div id='content'></div>
-</div></div>
-<script>
-let all=[];
-let activeYear='';
-let yearsOpen=false;
-let notes=JSON.parse(localStorage.getItem('notes')||'{}');
-fetch('data/monety.json').then(r=>r.json()).then(d=>{all=d;render();});
-document.getElementById('search').oninput=render;
-function render(){
- let q=document.getElementById('search').value.toLowerCase();
- let series={}; all.forEach(m=>{if(activeYear && m.rok != activeYear)return;if(!m.nazwa.toLowerCase().includes(q))return; (series[m.seria]??=[]).push(m)});
- let years = {};
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kolekcja Monet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-all.forEach(m=>{
-  years[m.rok] = (years[m.rok] || 0) + 1;
-});
+<body>
 
-let yearsList = Object.keys(years)
-  .sort((a,b)=>b-a);
+<div class="layout">
 
-let shtml = `
-<div class="menu-title" onclick="toggleYears()">
-  ${yearsOpen ? '▼' : '▶'} Monety Kolekcjonerskie 20 zł
-</div>
-`;
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Kolekcje</h2>
 
-if(yearsOpen){
-
-  shtml += `
-    <div class="${
-      activeYear==='' ? 'series active' : 'series'
-    }"
-    onclick="activeYear='';render()">
-      Wszystkie
-    </div>
-  `;
-
-  yearsList.forEach(year=>{
-
-    shtml += `
-      <div class="${
-        activeYear==year ? 'series active' : 'series'
-      }"
-      onclick="activeYear='${year}';render()">
-        ${year} (${years[year]})
-      </div>
-    `;
-  });
-}
-
-document.getElementById('serie').innerHTML = shtml;
-let h='';
-
-for(let k in series){
-
-  h += `<div class='group'>
-          <h2>${k}</h2>
-          <div class='cards'>`;
-
-  series[k].forEach(m => {
-
-    h += `
-      <div class='card'>
-
-        <div class='images'>
-
-          <div class='imgbox'>
-            ${
-              m.awers
-              ? `<img src="${m.awers}" class="coinimg"
-onclick="openViewer('${m.awers}')">`
-              : `AWERS`
-            }
-          </div>
-
-          <div class='imgbox'>
-            ${
-              m.rewers
-              ? `<img src="${m.rewers}" class="coinimg"
-onclick="openViewer('${m.rewers}')">`
-              : `REWERS`
-            }
-          </div>
-
+        <div class="menu-title">Monety 20 zł</div>
+        <div class="series-group">
+            <div class="series">Moneta A</div>
+            <div class="series">Moneta B</div>
+            <div class="series">Moneta C</div>
         </div>
 
-        <h3>${m.nazwa}</h3>
+        <div class="menu-title">Monety 10 zł</div>
+        <div class="series-group">
+            <div class="series">Moneta X</div>
+            <div class="series">Moneta Y</div>
+        </div>
 
-        <p><strong>Rok:</strong> ${m.rok}</p>
-        <p><strong>Nominał:</strong> 20 zł</p>
-        <p><strong>Stan:</strong> ${notes[m.nazwa]?.stan || '-'}</p>
+        <div class="menu-title">Serie specjalne</div>
+        <div class="series-group">
+            <div class="series">Złote</div>
+            <div class="series">Srebrne</div>
+        </div>
 
- <button class="edit-btn" data-name="${m.nazwa}">
-  Edytuj
-</button>
-
-      </div>
-    `;
-
-  });
-
-  h += `</div></div>`;
-}
-
-document.getElementById('content').innerHTML = h;
- document.querySelectorAll('.edit-btn').forEach(btn => {
-  btn.onclick = () => {
-    editCoin(btn.dataset.name);
-  };
-});
-}
- function openViewer(src){
-  document.getElementById('viewerImg').src = src;
-  document.getElementById('viewer').style.display = 'flex';
-}
-
-function closeViewer(){
-  document.getElementById('viewer').style.display = 'none';
-}
- function toggleYears(){
-  yearsOpen = !yearsOpen;
-  render();
-}
-function editCoin(name){
-
-  let current = notes[name] || { 
-    stan:'',
-    notatka:''
-  };
-
-  document.getElementById('editName').value = name;
-  document.getElementById('editStan').value = current.stan || '';
-  document.getElementById('editNotatka').value = current.notatka || '';
-
-  document.getElementById('editModal').style.display = 'flex';
-};
-function closeModal(){
-  document.getElementById('editModal').style.display = 'none';
-}
-
-function saveCoin(){
-
-  let name = document.getElementById('editName').value;
-
-  notes[name] = {
-    stan: document.getElementById('editStan').value,
-    notatka: document.getElementById('editNotatka').value
-  };
-
-closeModal();
-render();
-
-localStorage.setItem('notes', JSON.stringify(notes));
-
-alert('Zapisano');
-}
-</script>
-
-<div id="viewer" class="viewer" onclick="closeViewer()">
-  <img id="viewerImg">
-</div>
-<div id="editModal" class="modal">
-
-  <div class="modal-content">
-
-    <h2>Edycja monety</h2>
-
-    <input type="hidden" id="editName">
-
-    <label>Stan monety</label>
-    <input id="editStan" type="text">
-
-    <label>Notatka</label>
-    <textarea id="editNotatka"></textarea>
-
-    <div class="modal-buttons">
-      <button onclick="saveCoin()">Zapisz</button>
-      <button onclick="closeModal()">Anuluj</button>
     </div>
 
-  </div>
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="group">
+            <h2>Monety</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="images">
+                        <div class="imgbox">Obraz 1</div>
+                        <div class="imgbox">Obraz 2</div>
+                    </div>
+                    <h3>Moneta A</h3>
+                    <p>Opis monety</p>
+                    <button>Zobacz</button>
+                </div>
+
+                <div class="card">
+                    <div class="images">
+                        <div class="imgbox">Obraz 1</div>
+                        <div class="imgbox">Obraz 2</div>
+                    </div>
+                    <h3>Moneta B</h3>
+                    <p>Opis monety</p>
+                    <button>Zobacz</button>
+                </div>
+
+                <div class="card">
+                    <div class="images">
+                        <div class="imgbox">Obraz 1</div>
+                        <div class="imgbox">Obraz 2</div>
+                    </div>
+                    <h3>Moneta C</h3>
+                    <p>Opis monety</p>
+                    <button>Zobacz</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 
 </div>
- <script>
+
+<!-- JS -->
+<script>
 document.querySelectorAll('.menu-title').forEach(item => {
     item.addEventListener('click', () => {
         item.classList.toggle('open');
@@ -197,16 +90,13 @@ document.querySelectorAll('.menu-title').forEach(item => {
 
 document.querySelectorAll('.series').forEach(item => {
     item.addEventListener('click', () => {
-        
-        // usuń active z innych
         document.querySelectorAll('.series').forEach(el => {
             el.classList.remove('active');
         });
-
-        // dodaj active do klikniętego
         item.classList.add('active');
     });
 });
 </script>
+
 </body>
 </html>
