@@ -8,39 +8,54 @@
 </div></div>
 <script>
 let all=[];
-let active='';
+let activeYear='';
+let yearsOpen=false;
 let notes=JSON.parse(localStorage.getItem('notes')||'{}');
 fetch('data/monety.json').then(r=>r.json()).then(d=>{all=d;render();});
 document.getElementById('search').oninput=render;
 function render(){
  let q=document.getElementById('search').value.toLowerCase();
- let series={}; all.forEach(m=>{if(active && m.seria!=active)return; if(!m.nazwa.toLowerCase().includes(q))return; (series[m.seria]??=[]).push(m)});
- let shtml=''; let counts={}; all.forEach(m=>counts[m.seria]=(counts[m.seria]||0)+1);
- let allClass = active===''
-  ? 'series active'
-  : 'series';
+ let series={}; all.forEach(m=>{if(activeYear && m.rok != activeYear)return;if(!m.nazwa.toLowerCase().includes(q))return; (series[m.seria]??=[]).push(m)});
+ let years = {};
 
-shtml += `
-  <div class="${allClass}" onclick="active='';render()">
-    Wszystkie
-  </div>
+all.forEach(m=>{
+  years[m.rok] = (years[m.rok] || 0) + 1;
+});
+
+let yearsList = Object.keys(years)
+  .sort((a,b)=>b-a);
+
+let shtml = `
+<div class="menu-title" onclick="toggleYears()">
+  ${yearsOpen ? '▼' : '▶'} Monety Kolekcjonerskie 20 zł
+</div>
 `;
 
-for(let k in counts){
-
-  let cls = active===k
-    ? "series active"
-    : "series";
+if(yearsOpen){
 
   shtml += `
-    <div class="${cls}" onclick="active='${k}';render()">
-      ${k} (${counts[k]})
+    <div class="${
+      activeYear==='' ? 'series active' : 'series'
+    }"
+    onclick="activeYear='';render()">
+      Wszystkie
     </div>
   `;
+
+  yearsList.forEach(year=>{
+
+    shtml += `
+      <div class="${
+        activeYear==year ? 'series active' : 'series'
+      }"
+      onclick="activeYear='${year}';render()">
+        ${year} (${years[year]})
+      </div>
+    `;
+  });
 }
 
 document.getElementById('serie').innerHTML = shtml;
-
 let h='';
 
 for(let k in series){
@@ -108,6 +123,10 @@ document.getElementById('content').innerHTML = h;
 
 function closeViewer(){
   document.getElementById('viewer').style.display = 'none';
+}
+ function toggleYears(){
+  yearsOpen = !yearsOpen;
+  render();
 }
 function editCoin(name){
 
