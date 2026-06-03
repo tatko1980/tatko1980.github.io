@@ -332,4 +332,25 @@ button:hover{
     .cards{
         grid-template-columns:1fr;
     }
+    /* ===================== SIDEBAR TREE ===================== */
+
+.menu-title{
+    position:relative;
+    padding-left:28px;
+}
+
+/* strzałka */
+.menu-title::before{
+    content:"▶";
+    position:absolute;
+    left:8px;
+    transition:.2s;
+    color:var(--accent);
+}
+
+/* stan otwarty */
+.menu-title.open::before{
+    content:"▼";
+.series{
+    padding-left:36px;
 }
