@@ -332,7 +332,7 @@ button:hover{
     .cards{
         grid-template-columns:1fr;
     }
-    /* ===================== SIDEBAR TREE ===================== */
+  /* ===================== SIDEBAR TREE ===================== */
 
 .menu-title{
     position:relative;
@@ -351,6 +351,9 @@ button:hover{
 /* stan otwarty */
 .menu-title.open::before{
     content:"▼";
+}
+
+/* podkategorie */
 .series{
     padding-left:36px;
 }
