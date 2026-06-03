@@ -1,3 +1,18 @@
+:root{
+    --bg:#07101f;
+    --panel:#0c1628;
+    --panel-2:#101c31;
+    --border:#24324a;
+    --border-soft:#2f3b52;
+
+    --accent:#d4a72c;
+    --accent-hover:#e3b73e;
+
+    --text:#eee;
+    --text-dim:#b9c7e6;
+
+    --radius:12px;
+}
 body{
     margin:0;
     background:#07101f;
@@ -12,10 +27,10 @@ body{
 
 .sidebar{
     width:260px;
-    background:#0c1628;
+    background:var(--panel);
     padding:25px;
     box-sizing:border-box;
-    border-right:1px solid #1f2d47;
+    border-right:1px solid var(--border);
     position:sticky;
     top:0;
     height:100vh;
@@ -40,16 +55,16 @@ body{
 }
 
 .stat{
-    background:#101c31;
+    background:var(--panel-2);
     padding:20px;
     border-radius:14px;
     min-width:220px;
-    border:1px solid #24324a;
+    border:1px solid var(--border-soft);
 }
 
 .stat h2{
     margin:0 0 10px 0;
-    color:#d4a72c;
+    color:var(--accent);
     font-size:38px;
 }
 
@@ -86,17 +101,17 @@ input:focus{
 }
 
 .card{
-    background:#0d1729;
-    border:1px solid #2f3b52;
-    border-radius:18px;
+    background:var(--panel-2);
+    border:1px solid var(--border-soft);
+    border-radius:16px;
     padding:18px;
-    transition:all .25s ease;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:#d4a72c;
-    box-shadow:0 10px 25px rgba(0,0,0,.45);
+    transform:translateY(-4px);
+    border-color:var(--accent);
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
 }
 
 .images{
