@@ -188,5 +188,25 @@ alert('Zapisano');
   </div>
 
 </div>
+ <script>
+document.querySelectorAll('.menu-title').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('open');
+    });
+});
+
+document.querySelectorAll('.series').forEach(item => {
+    item.addEventListener('click', () => {
+        
+        // usuń active z innych
+        document.querySelectorAll('.series').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // dodaj active do klikniętego
+        item.classList.add('active');
+    });
+});
+</script>
 </body>
 </html>
